@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="Sorumluluk — Ravora teknik outdoor giyim markası." name="description"/><title>Sorumluluk | Ravora</title><link href="assets/img/favicon.png" rel="icon"/><link href="assets/css/style.css" rel="stylesheet"/>
+<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=JeidWCkF9HFAEUxqX-sxsjhhL_St5McbRMYT5rXtyBbc2cmVoOJchszM2Dml2Tue7qYHModofMieHIPq-zQTElAm0aslRvW67dr6QfMz3e8pIKZb63l7Y0BEP4y7sV4T2t0KdyQgSuoUKpsAmK1XA8svwMXQxdY4ZBXnBfSWirjcrZEetlz3yFKfPYQrWRxndd8VgQpDFvnEDweM9lDjB-LGZpNQJie25DoNH0H-Oma7j8XFUZxnhJcC8O7i-ph9TK59C6UyG8KZUlo7MGyz-w" charset="UTF-8"></script><style id="longevity-wheel-label-fix">
+/* Döngü metinleri: çemberin hemen dışında, köşe boşluklarında sabit konumlar */
+.longevity-wheel {
+  overflow: visible !important;
+}
+.longevity-wheel .wheel-label {
+  z-index: 4 !important;
+  font-size: clamp(17px, 1.35vw, 20px) !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  letter-spacing: .055em !important;
+  color: #fff !important;
+  -webkit-text-stroke: 1.35px #111 !important;
+  paint-order: stroke fill !important;
+  white-space: nowrap !important;
+  text-shadow:
+    0 1px 1px rgba(0,0,0,.75),
+    1px 0 0 rgba(0,0,0,.45),
+    -1px 0 0 rgba(0,0,0,.45),
+    0 -1px 0 rgba(0,0,0,.45) !important;
+}
+.longevity-wheel .wheel-label[data-step="01"] {
+  top: 1.5% !important;
+  left: 76% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+}
+.longevity-wheel .wheel-label[data-step="02"] {
+  top: 81.5% !important;
+  left: 95.5% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+}
+.longevity-wheel .wheel-label[data-step="03"] {
+  top: 95.5% !important;
+  left: 18% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+}
+.longevity-wheel .wheel-label[data-step="04"] {
+  top: 3% !important;
+  left: 17% !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: translate(-50%, -50%) !important;
+}
+.longevity-wheel .wheel-center {
+  z-index: 4 !important;
+  font-size: clamp(36px, 4.5vw, 44px) !important;
+  font-weight: 800 !important;
+  color: #fff !important;
+  -webkit-text-stroke: 1.6px #111 !important;
+  paint-order: stroke fill !important;
+  text-shadow:
+    0 1px 1px rgba(0,0,0,.8),
+    1px 0 0 rgba(0,0,0,.6),
+    -1px 0 0 rgba(0,0,0,.6),
+    0 -1px 0 rgba(0,0,0,.6) !important;
+}
+.longevity-wheel .cycle-arrows {
+  z-index: 2 !important;
+  pointer-events: none;
+}
+@media (max-width: 640px) {
+  .longevity-wheel .wheel-label {
+    font-size: clamp(14px, 3.7vw, 17px) !important;
+    -webkit-text-stroke-width: 1px !important;
+  }
+  .longevity-wheel .wheel-label[data-step="01"] {
+    top: 2.5% !important;
+    left: 75% !important;
+  }
+  .longevity-wheel .wheel-label[data-step="02"] {
+    top: 80% !important;
+    left: 94% !important;
+  }
+  .longevity-wheel .wheel-label[data-step="03"] {
+    top: 94% !important;
+    left: 20% !important;
+  }
+  .longevity-wheel .wheel-label[data-step="04"] {
+    top: 5.5% !important;
+    left: 19% !important;
+  }
+  .longevity-wheel .wheel-center {
+    font-size: clamp(28px, 8vw, 36px) !important;
+    -webkit-text-stroke-width: 1.25px !important;
+  }
+}
+</style>
+<style id="responsibility-final-tuning">
+/* Outline verilen döngü metinlerine daha belirgin gölge */
+.longevity-wheel .wheel-label,
+.longevity-wheel .wheel-center {
+  text-shadow:
+    0 2px 2px rgba(0,0,0,.9),
+    0 4px 10px rgba(0,0,0,.42),
+    1px 1px 0 rgba(0,0,0,.72),
+    -1px 1px 0 rgba(0,0,0,.72),
+    1px -1px 0 rgba(0,0,0,.72),
+    -1px -1px 0 rgba(0,0,0,.72) !important;
+}
+
+/* 01-02-03 kartlarında açık yeşilden koyu yeşile kademeli geçiş */
+.commitment-list .commitment-card {
+  border-radius: 34px !important;
+  overflow: hidden !important;
+}
+.commitment-list .commitment-card:nth-child(1) {
+  background: linear-gradient(135deg, #9fc3b7 0%, #84b0a2 52%, #6d9b8e 100%) !important;
+  border: 1px solid rgba(6, 62, 64, .24) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18) !important;
+}
+.commitment-list .commitment-card:nth-child(2) {
+  background: linear-gradient(135deg, #13837d 0%, #0d6866 50%, #075556 100%) !important;
+  border: 1px solid rgba(2, 44, 46, .38) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+.commitment-list .commitment-card:nth-child(3) {
+  background: linear-gradient(135deg, #0a6768 0%, #074d53 48%, #03343c 100%) !important;
+  border: 1px solid rgba(1, 31, 34, .42) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+/* Sol taraftaki büyük 01/02/03 rakamları */
+.commitment-list .commitment-card b {
+  font-size: clamp(96px, 8vw, 132px) !important;
+  line-height: .9 !important;
+  font-weight: 800 !important;
+}
+.commitment-list .commitment-card:nth-child(1) b {
+  color: rgba(16, 104, 100, .17) !important;
+}
+.commitment-list .commitment-card:nth-child(2) b {
+  color: rgba(255,255,255, .11) !important;
+}
+.commitment-list .commitment-card:nth-child(3) b {
+  color: rgba(255,255,255, .12) !important;
+}
+
+/* Başlık ve metin renkleri */
+.commitment-list .commitment-card:nth-child(1) h3,
+.commitment-list .commitment-card:nth-child(1) p {
+  color: #0d2b3b !important;
+}
+.commitment-list .commitment-card:nth-child(2) h3,
+.commitment-list .commitment-card:nth-child(2) p,
+.commitment-list .commitment-card:nth-child(3) h3,
+.commitment-list .commitment-card:nth-child(3) p {
+  color: rgba(255,255,255,.96) !important;
+}
+
+/* Sağdaki ikon alanları */
+.commitment-list .commitment-card .commitment-mark {
+  width: clamp(126px, 11vw, 176px) !important;
+  height: clamp(126px, 11vw, 176px) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.commitment-list .commitment-card:nth-child(1) .commitment-mark {
+  background: rgba(255,255,255,.48) !important;
+  color: #0b7a78 !important;
+}
+.commitment-list .commitment-card:nth-child(2) .commitment-mark,
+.commitment-list .commitment-card:nth-child(3) .commitment-mark {
+  background: rgba(255,255,255,.08) !important;
+  color: #ff7a1c !important;
+}
+.commitment-list .commitment-card:nth-child(3) .commitment-mark {
+  color: #d8f2ee !important;
+}
+.commitment-list .commitment-card .commitment-mark svg {
+  width: 46% !important;
+  height: 46% !important;
+}
+
+@media (max-width: 900px) {
+  .commitment-list .commitment-card .commitment-mark {
+    width: 108px !important;
+    height: 108px !important;
+  }
+}
+</style>
+
+</head><body class=""><a class="skip-link" href="#icerik">İçeriğe geç</a>
+<header aria-label="Site üst alanı" class="site-header">
+<div class="container nav-shell">
+<a aria-label="Ravora ana sayfa" class="brand" href="index.html">
+<img alt="Ravora" class="logo logo-white" src="assets/img/ravora-logo-white.svg"/>
+<img alt="Ravora" class="logo logo-color" src="assets/img/ravora-logo.svg"/>
+</a>
+<nav aria-label="Ana menü" class="desktop-nav"><a class="nav-link" href="index.html">Ana Sayfa</a><a class="nav-link" href="kurumsal.html">Kurumsal</a><a class="nav-link" href="tasarim-kalite.html">Tasarım &amp; Kalite</a><a class="nav-link active" href="sorumluluk.html">Sorumluluk</a></nav>
+<a class="header-cta" href="iletisim.html">Bize ulaşın</a>
+<button aria-expanded="false" aria-label="Menüyü aç" class="menu-button" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+</div>
+<div aria-hidden="false" class="mobile-nav"><div class="mobile-nav-inner"><div class="mobile-nav-top"><img alt="Ravora" src="assets/img/ravora-logo.svg"/><button aria-label="Menüyü kapat" class="mobile-close" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"></path></svg></button></div><nav aria-label="Mobil menü"><a class="nav-link" href="index.html">Ana Sayfa</a><a class="nav-link" href="kurumsal.html">Kurumsal</a><a class="nav-link" href="tasarim-kalite.html">Tasarım &amp; Kalite</a><a class="nav-link active" href="sorumluluk.html">Sorumluluk</a><a class="nav-link" href="iletisim.html">İletişim</a></nav><div class="mobile-contact"><a href="mailto:ravora@ravoragiyim.com">ravora@ravoragiyim.com</a><a href="tel:+905071684352">+90 (507) 168 43 52</a></div></div></div>
+</header><main id="icerik">
+<section class="responsibility-hero"><img alt="Ravora logolu outdoor çantayla dağ rotasında ilerleyen kullanıcı" src="assets/img/backpack-rear.webp"/><div class="container responsibility-hero-content"><div class="breadcrumb" style="color:rgba(255,255,255,.56)"><a href="index.html">Ana Sayfa</a><span>/</span><span>Sorumluluk</span></div><div class="eyebrow">Sorumlu yaklaşım</div><h1>Yalnızca tasarımda değil, her kararda yalınlık.</h1></div></section>
+<section class="section surface-white"><div class="container"><div class="section-head reveal section-head-full"><div><div class="kicker">Yaklaşımımız</div><h2 class="section-title">İddiamız, uygulamayla desteklenebildiği kadar güçlü.</h2></div></div><div class="commitment-list"><article class="commitment-card reveal"><b>01</b><div><h3>Uzun ömürlü kullanım</h3><p>Tek sezonluk tüketim yerine, farklı rotalarda yıllarca kullanılabilecek dayanıklı ve zamansız ürün yaklaşımını esas alıyoruz.</p></div><div class="commitment-mark"><svg fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 120 120"><circle cx="60" cy="60" r="39"></circle><path d="M60 21c17 12 17 66 0 78M21 60c12-17 66-17 78 0M33 33c18 2 52 36 54 54M87 33C69 35 35 69 33 87"></path></svg></div></article><article class="commitment-card reveal"><b>02</b><div><h3>Yalın kaynak kullanımı</h3><p>Gereksiz malzeme, ambalaj ve operasyon adımlarını azaltmayı; gerekeni ise daha doğru ve verimli kullanmayı hedefliyoruz.</p></div><div class="commitment-mark"><svg fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 120 120"><path d="M98 18C55 21 25 45 22 91c36 4 69-17 76-73Z"></path><path d="M27 88c20-25 39-37 64-51"></path></svg></div></article><article class="commitment-card reveal"><b>03</b><div><h3>Şeffaf gelişim</h3><p>Ulaşılmamış hedefleri gerçekleşmiş gibi sunmak yerine, gelişim alanlarını açıkça tanımlayıp ilerlemeyi ölçülebilir hale getirmeyi önemsiyoruz.</p></div><div class="commitment-mark"><svg fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 120 120"><path d="m60 17 39 20-39 20-39-20 39-20Z"></path><path d="M21 37v46l39 20 39-20V37M60 57v46"></path><path d="m41 28 39 20"></path></svg></div></article></div></div></section>
+<section class="section surface-sand"><div class="container"><div class="longevity-layout"><div class="longevity-wheel reveal"><span class="wheel-label" data-step="01">KULLAN</span><span class="wheel-label" data-step="02">KORU</span><span class="wheel-label" data-step="03">ONAR</span><span class="wheel-label" data-step="04">DEVAM ET</span><svg aria-hidden="true" class="cycle-arrows" viewbox="0 0 100 100"><defs><marker id="cycleArrow" markerheight="7" markerwidth="7" orient="auto" refx="5.4" refy="3.5"><path d="M0,0 L7,3.5 L0,7 Z" fill="rgba(255,255,255,.88)"></path></marker></defs><path d="M53 8 A42 42 0 0 1 92 47"></path><path d="M92 53 A42 42 0 0 1 53 92"></path><path d="M47 92 A42 42 0 0 1 8 53"></path><path d="M8 47 A42 42 0 0 1 47 8"></path></svg><div class="wheel-center">Uzun ömür</div></div><div class="longevity-copy reveal delay-1"><div class="kicker">Uzun ömürlü kullanım</div><h2>Hızlı tüketime karşı zamansız dayanıklılık.</h2><p>Bir ürünün daha uzun süre kullanılabilmesi; tasarım, malzeme, bakım ve kullanıcı alışkanlıklarının birlikte değerlendirilmesini gerektirir.</p><p>Bu nedenle zamansız görünüm, aşınmaya dirençli yapı ve açık bakım bilgileri ürün yaklaşımımızın ayrılmaz parçalarıdır.</p></div></div></div></section>
+<section class="responsibility-campfire"><img alt="Kamp ateşi başında Ravora outdoor ürünleriyle sohbet eden iki kişi" src="assets/img/campfire-team.webp"/><div class="container responsibility-campfire-copy"><div class="kicker">Sorumlu yaklaşım</div><h2>Bugünün seçimi, yarının standardını belirler.</h2></div></section>
+</main><footer class="site-footer"><div class="container"><div class="footer-grid">
+<div class="footer-brand"><img alt="Ravora" src="assets/img/ravora-logo-white.svg"/><p>Doğanın değişken şartları ile şehir yaşamının ritmi arasında, kesintisiz hareket için geliştirilen teknik outdoor yaklaşımı.</p><div class="footer-slogan">SINIRLAR DEĞİŞİR. RAVORA DURUŞU DEĞİŞMEZ.</div></div>
+<div><h3>Ravora</h3><a href="kurumsal.html">Kurumsal</a><a href="tasarim-kalite.html">Tasarım &amp; Kalite</a><a href="sorumluluk.html">Sorumluluk</a></div>
+<div><h3>İletişim</h3><a href="iletisim.html">Bize ulaşın</a><a href="mailto:ravora@ravoragiyim.com">E-posta</a><a href="tel:+905071684352">Telefon</a></div>
+<div class="footer-contact"><h3>Genel merkez</h3><p>Tevfik İleri Mah. Firuze Sok. No: 70/1<br/>Pursaklar, Ankara, Türkiye</p><a href="kvkk.html">KVKK Aydınlatma Metni</a></div>
+</div><div class="footer-bottom"><span>© 2026 Ravora Giyim Sanayi A.Ş.</span></div></div></footer>
+<script src="assets/js/main.js"></script></body></html>
