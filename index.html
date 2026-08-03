@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 
-<html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="Ana Sayfa — Ravora teknik outdoor giyim markası." name="description"/><title>Ana Sayfa | Ravora</title><link href="assets/img/favicon.png" rel="icon"/><link href="assets/css/style.css" rel="stylesheet"/></head><body class=""><a class="skip-link" href="#icerik">İçeriğe geç</a>
+<html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="Ana Sayfa — Ravora teknik outdoor giyim markası." name="description"/><title>Ana Sayfa | Ravora</title><link href="assets/img/favicon.png" rel="icon"/><link href="assets/css/style.css" rel="stylesheet"/>
+
+
+<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=iv4MAgFri1USslxZcIoRtTrDgpGr13SAFQ3bLR3eCGl_PqbInqa0W6PJWUHU-wBAGNSSx0GoGfPzpOqKs54ZxkIiRAtv9smXbsaQwmay9LlW9CSKj5n60wWKTwL8wd6zL99y8btyHGVvxGZDL-Knc0inT-Sn6NzuZ2EZbhpk-uZtD9h2IJjQ2C_1nDjMd0CnYAMcX1Xlpi5id4i21q5vn5G0xDP_FxsrWUv8I1gD-67Zv1Mc7ERG6e2Tc057dWZdtONmsXjAx5djX5a-P1m5fg" charset="UTF-8"></script><style id="hero-logo-exact-alignment">
+/* Masaüstünde hero grubunun tamamı, header logosunun sol kenarına hizalanır. */
+@media (min-width: 901px) {
+  .home-hero .home-hero-content.home-hero-content-balanced {
+    position: relative !important;
+    left: var(--hero-logo-align-x, 0px) !important;
+  }
+}
+@media (max-width: 900px) {
+  .home-hero .home-hero-content.home-hero-content-balanced {
+    left: 0 !important;
+  }
+}
+</style>
+
+</head><body class=""><a class="skip-link" href="#icerik">İçeriğe geç</a>
 <header aria-label="Site üst alanı" class="site-header">
 <div class="container nav-shell">
 <a aria-label="Ravora ana sayfa" class="brand" href="index.html">
@@ -36,4 +54,39 @@
 <div><h3>İletişim</h3><a href="iletisim.html">Bize ulaşın</a><a href="mailto:ravora@ravoragiyim.com">E-posta</a><a href="tel:+905071684352">Telefon</a></div>
 <div class="footer-contact"><h3>Genel merkez</h3><p>Tevfik İleri Mah. Firuze Sok. No: 70/1<br/>Pursaklar, Ankara, Türkiye</p><a href="kvkk.html">KVKK Aydınlatma Metni</a></div>
 </div><div class="footer-bottom"><span>© 2026 Ravora Giyim Sanayi A.Ş.</span></div></div></footer>
-<script src="assets/js/main.js"></script></body></html>
+<script src="assets/js/main.js"></script>
+<script id="hero-logo-exact-alignment-script">
+(function () {
+  var hero = document.querySelector('.home-hero .home-hero-content.home-hero-content-balanced');
+  var brand = document.querySelector('.site-header .nav-shell .brand');
+  if (!hero || !brand) return;
+
+  function alignHeroToLogo() {
+    if (window.innerWidth <= 900) {
+      hero.style.setProperty('--hero-logo-align-x', '0px');
+      return;
+    }
+
+    /* Önce eski kaydırmayı sıfırla, sonra iki gerçek ekran konumunun farkını ölç. */
+    hero.style.setProperty('--hero-logo-align-x', '0px');
+    requestAnimationFrame(function () {
+      var logoLeft = brand.getBoundingClientRect().left;
+      var heroLeft = hero.getBoundingClientRect().left;
+      var shift = logoLeft - heroLeft;
+      hero.style.setProperty('--hero-logo-align-x', shift.toFixed(2) + 'px');
+    });
+  }
+
+  window.addEventListener('load', alignHeroToLogo);
+  window.addEventListener('resize', alignHeroToLogo);
+  document.addEventListener('DOMContentLoaded', alignHeroToLogo);
+
+  if ('ResizeObserver' in window) {
+    var ro = new ResizeObserver(alignHeroToLogo);
+    ro.observe(document.documentElement);
+    ro.observe(brand);
+  }
+})();
+</script>
+
+</body></html>
