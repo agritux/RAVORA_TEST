@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="İletişim — Ravora teknik outdoor giyim markası." name="description"/><title>İletişim | Ravora</title><link href="assets/brand/favicon.png" rel="icon"/><link href="assets/css/style.css" rel="stylesheet"/><link href="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.css" rel="stylesheet"/><style>
+
+
+html, body {
+  background: #06383a;
+  scroll-behavior: auto !important;
+  scroll-snap-type: none !important;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
+
+body.page-light-header {
+  background: #06383a;
+}
+
+.page-contact {
+  --rv-ink: #0c3032;
+  --rv-orange: #f05a24;
+  min-height: 100svh;
+  box-sizing: border-box;
+  padding: 122px 0 72px !important;
+  background-color: #06383a;
+  background-image:
+    url("assets/decor/background-contour.svg"),
+    linear-gradient(135deg, #06383a 0%, #0a5451 50%, #06383a 100%);
+  background-position: center top, center;
+  background-size: 1100px auto, cover;
+  background-repeat: repeat, no-repeat;
+  background-attachment: fixed, fixed;
+  overflow: visible !important;
+  scroll-snap-align: none !important;
+  scroll-snap-stop: normal !important;
+}
+
+.contact-compact-section {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  min-height: auto !important;
+  scroll-snap-align: none !important;
+}
+
+.contact-compact-grid {
+  margin-top: 0 !important;
+  transform: none !important;
+}
+
+.contact-compact-section > .container {
+  width: min(calc(100% - 40px), 1180px);
+  max-width: none;
+}
+
+.contact-compact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(26px, 3vw, 38px);
+  align-items: start;
+}
+
+.contact-branch-panel {
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, .34);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, .72) 0%, transparent 43%),
+    linear-gradient(135deg, rgba(244, 240, 232, .97) 0%, rgba(225, 237, 228, .97) 52%, rgba(201, 222, 211, .96) 100%);
+  box-shadow: 0 18px 44px rgba(1, 35, 35, .24);
+}
+
+.contact-branch-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(18px, 2.2vw, 28px);
+  align-self: stretch;
+  height: auto;
+  padding: clamp(14px, 1.7vw, 20px);
+}
+
+.branch-photo-frame {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 16px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0c3032;
+}
+
+.branch-photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.branch-photo-frame::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 34% 0 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(4, 23, 25, .78) 100%);
+  pointer-events: none;
+}
+
+.branch-photo-caption {
+  position: absolute;
+  z-index: 2;
+  right: clamp(20px, 3vw, 32px);
+  bottom: clamp(18px, 2.4vw, 28px);
+  left: clamp(20px, 3vw, 32px);
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .56);
+}
+
+.branch-photo-caption .branch-info-eyebrow {
+  margin-bottom: 7px;
+  color: #ff7440;
+}
+
+.branch-photo-caption h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.8rem, 2.5vw, 2.45rem);
+  line-height: 1;
+}
+
+.branch-map-frame {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: start;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(12, 48, 50, .12);
+  border-radius: 18px;
+  background: #e9ddd2;
+}
+
+.rv-branch-map {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #e9ddd2;
+  font-family: inherit;
+}
+
+.rv-branch-map .maplibregl-canvas {
+  filter: sepia(.14) saturate(.72) hue-rotate(332deg) brightness(1.025) contrast(.94);
+}
+
+.rv-branch-map .maplibregl-canvas:focus {
+  outline: none;
+}
+
+.branch-map-frame:focus-within {
+  border-color: rgba(31, 122, 99, .72);
+  box-shadow: 0 0 0 2px rgba(31, 122, 99, .34);
+}
+
+.rv-map-pin {
+  display: block;
+  width: 30px;
+  height: auto;
+  max-width: none;
+  border: 0;
+  background: transparent;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 4px 5px rgba(31, 45, 43, .30));
+}
+
+.rv-branch-map .maplibregl-ctrl-top-left {
+  top: 14px;
+  left: 14px;
+}
+
+.rv-branch-map .maplibregl-ctrl-group {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(12, 48, 50, .18);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 4px 14px rgba(34, 44, 42, .18);
+}
+
+.rv-branch-map .maplibregl-ctrl-group button {
+  display: block;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.rv-branch-map .maplibregl-ctrl-group button + button {
+  border-top: 1px solid rgba(12, 48, 50, .14);
+}
+
+.rv-branch-map .maplibregl-ctrl-group button:hover,
+.rv-branch-map .maplibregl-ctrl-group button:focus-visible {
+  background-color: rgba(240, 90, 36, .10);
+}
+
+.rv-branch-map .maplibregl-ctrl-icon {
+  opacity: .82;
+}
+
+.rv-branch-map .maplibregl-ctrl-attrib {
+  color: #335052;
+  font-size: 10px;
+  line-height: 1.25;
+}
+
+.rv-branch-map .maplibregl-ctrl-attrib a {
+  color: inherit;
+}
+
+.rv-map-status {
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #efe5dc;
+  color: var(--rv-ink);
+  font-size: .92rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.rv-map-status[hidden] {
+  display: none;
+}
+
+.contact-branch-info {
+  display: flex;
+  grid-column: 1;
+  grid-row: 2;
+  flex: 1;
+  flex-direction: column;
+  padding: 8px 14px 10px;
+}
+
+.branch-info-eyebrow {
+  margin: 0 0 6px;
+  color: var(--rv-orange);
+  font-size: clamp(1.22rem, 1.55vw, 1.48rem);
+  line-height: 1.05;
+  font-weight: 760;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.branch-info-rows {
+  display: grid;
+  width: 100%;
+  margin-top: auto;
+  border-top: 1px solid rgba(12, 48, 50, .10);
+}
+
+.branch-info-row {
+  display: grid;
+  grid-template-columns: minmax(110px, .8fr) minmax(0, 1.8fr);
+  gap: 20px;
+  align-items: start;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(12, 48, 50, .10);
+}
+
+.branch-info-row:last-child {
+  border-bottom: 0;
+}
+
+.branch-info-row .branch-row-label {
+  color: var(--rv-orange);
+  font-size: .75rem;
+  line-height: 1.3;
+  font-weight: 760;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+.branch-info-row .branch-row-value,
+.branch-info-row .branch-row-value a {
+  margin: 0;
+  color: var(--rv-ink);
+  font-size: .98rem;
+  line-height: 1.45;
+  font-weight: 520;
+  text-align: right;
+  text-decoration: none;
+}
+
+.branch-info-row .branch-row-value a:hover,
+.branch-info-row .branch-row-value a:focus-visible {
+  color: var(--rv-orange);
+}
+
+@media (max-width: 1180px) {
+  .page-contact {
+    min-height: auto;
+    overflow: visible;
+    padding-top: 90px;
+    padding-bottom: 24px;
+  }
+
+  .contact-compact-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 900px) {
+  .contact-branch-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+  }
+
+  .branch-photo-frame,
+  .contact-branch-info,
+  .branch-map-frame {
+    grid-column: 1;
+  }
+
+  .branch-photo-frame { grid-row: 1; }
+  .contact-branch-info { grid-row: 2; }
+  .branch-map-frame {
+    grid-row: 3;
+    margin-top: 16px;
+  }
+}
+
+
+.page-contact ~ .rv-scroll-cue,
+body:has(.page-contact) .rv-scroll-cue {
+  display: none !important;
+}
+
+@media (max-width: 820px) {
+  .page-contact {
+    padding-top: 82px;
+  }
+
+  .branch-info-row {
+    grid-template-columns: minmax(88px, .8fr) minmax(0, 1.6fr);
+    gap: 14px;
+  }
+}
+
+</style>
+<style id="rv-hero-navigation-enhancements">
+
+:root {
+  --rv-hero-side-space: clamp(48px, 4.2vw, 82px);
+  --rv-hero-top-space: clamp(190px, 27.7svh, 230px);
+}
+
+.rv-standard-hero {
+  position: relative !important;
+  isolation: isolate;
+}
+
+.rv-standard-hero .rv-hero-copy {
+  z-index: 4 !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+.rv-standard-hero .rv-hero-copy .breadcrumb {
+  display: none !important;
+}
+
+.rv-standard-hero .rv-hero-copy .eyebrow {
+  margin: 0 !important;
+}
+
+.rv-standard-hero .rv-hero-copy h1 {
+  width: 100% !important;
+  max-width: 740px !important;
+  margin: 18px 0 28px !important;
+  font-size: clamp(3rem, 5.5vw, 5.8rem) !important;
+  line-height: .96 !important;
+  letter-spacing: -.018em !important;
+}
+
+.rv-standard-hero .rv-hero-copy p {
+  width: 100% !important;
+  max-width: 620px !important;
+  margin: 0 !important;
+  font-size: 1.15rem !important;
+  line-height: 1.62 !important;
+}
+
+.rv-standard-hero .rv-hero-copy .hero-actions {
+  margin-top: 34px !important;
+}
+
+
+.page-light-header .legal-hero.rv-standard-hero,
+.page-light-header .legal-hero.rv-standard-hero .rv-hero-copy h1 {
+  color: #102829 !important;
+}
+
+.page-light-header .legal-hero.rv-standard-hero .rv-hero-copy p {
+  color: rgba(16, 40, 41, .72) !important;
+}
+
+
+@media (min-width:1180px) {
+  .rv-standard-hero .rv-hero-copy {
+    width: 50vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding-right: var(--rv-hero-side-space) !important;
+    padding-bottom: 40px !important;
+    padding-left: var(--rv-hero-side-space) !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+
+  .split-hero.rv-standard-hero .rv-hero-copy,
+  .split-hero-dark.rv-standard-hero .rv-hero-copy {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    height: 100% !important;
+    padding-top: var(--rv-hero-top-space) !important;
+  }
+
+  .hero-home.rv-standard-hero .rv-hero-copy,
+  .image-hero.rv-standard-hero .rv-hero-copy,
+  .image-hero-contact.rv-standard-hero .rv-hero-copy,
+  .legal-hero.rv-standard-hero .rv-hero-copy {
+    position: absolute !important;
+    top: 84px !important;
+    right: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    height: auto !important;
+    padding-top: var(--rv-hero-top-space) !important;
+  }
+}
+
+
+@media (min-width:768px) and (max-width:1179px) {
+  .rv-standard-hero .rv-hero-copy {
+    position: absolute !important;
+    top: calc(50% + 36px) !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 5vw !important;
+    width: min(620px, 64vw) !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: calc(100svh - 120px) !important;
+    margin: 0 !important;
+    padding: clamp(30px, 4.5vw, 54px) !important;
+    overflow: hidden !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .rv-standard-hero .rv-hero-copy h1 {
+    margin: 14px 0 22px !important;
+    font-size: clamp(2.8rem, 6.5vw, 4.6rem) !important;
+  }
+
+  .rv-standard-hero .rv-hero-copy p {
+    font-size: 1.05rem !important;
+  }
+}
+
+
+@media (max-width:767px) {
+  .rv-standard-hero .rv-hero-copy {
+    position: absolute !important;
+    top: calc(50% + 34px) !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 15px !important;
+    width: calc(100% - 30px) !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: calc(100svh - 110px) !important;
+    margin: 0 !important;
+    padding: clamp(22px, 6vw, 30px) !important;
+    overflow: hidden !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .rv-standard-hero .rv-hero-copy h1 {
+    margin: 12px 0 18px !important;
+    font-size: clamp(2.65rem, 12vw, 3.65rem) !important;
+  }
+
+  .rv-standard-hero .rv-hero-copy p {
+    font-size: .95rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .rv-standard-hero .rv-hero-copy .hero-actions {
+    margin-top: 22px !important;
+  }
+}
+
+
+@media (min-width:1180px) and (max-height: 850px) {
+  .rv-standard-hero .rv-hero-copy h1 {
+    margin: 12px 0 18px !important;
+    font-size: clamp(2.7rem, 4.8vw, 4.8rem) !important;
+  }
+
+  .rv-standard-hero .rv-hero-copy p {
+    font-size: 1rem !important;
+  }
+
+  .rv-standard-hero .rv-hero-copy .hero-actions {
+    margin-top: 24px !important;
+  }
+}
+
+
+.rv-scroll-cue {
+  position: fixed;
+  z-index: 1400;
+  left: 50%;
+  bottom: clamp(18px, 3svh, 32px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(229, 236, 236, .5);
+  transform: translateX(-50%);
+  cursor: pointer;
+  opacity: 1;
+  transition: color .22s ease, transform .22s ease, opacity .22s ease;
+}
+
+.rv-scroll-cue svg {
+  width: 72px;
+  height: 20px;
+  overflow: visible;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .34)) drop-shadow(0 0 1px rgba(255, 255, 255, .24));
+  animation: rvCueBlink 1.8s ease-in-out infinite;
+  transition: transform .22s ease;
+}
+
+.rv-scroll-cue.is-last svg {
+  transform: rotate(180deg);
+}
+
+.rv-scroll-cue:hover,
+.rv-scroll-cue:focus-visible {
+  color: rgba(245, 248, 248, .72);
+  transform: translateX(-50%) translateY(-2px);
+  outline: none;
+}
+
+@keyframes rvCueBlink {
+  0%, 100% { opacity: .34; }
+  50% { opacity: 1; }
+}
+
+
+.rv-back-to-top {
+  display: none !important;
+}
+
+body.nav-open .rv-scroll-cue {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width:767px) {
+  .rv-scroll-cue {
+    width: 84px;
+    height: 30px;
+    bottom: 16px;
+  }
+
+  .rv-scroll-cue svg {
+    width: 64px;
+    height: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rv-scroll-cue svg {
+    animation: none !important;
+  }
+
+  .rv-scroll-cue,
+  .rv-scroll-cue svg {
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head><body><a class="skip-link" href="#main-content">İçeriğe geç</a>
+<header aria-label="Site üst alanı" class="header">
+<div class="container header-container">
+<a aria-label="Ravora ana sayfa" class="header-brand" href="index.html">
+<img alt="" class="brand-logo brand-logo-light" src="assets/brand/ravora-logo-white.svg"/>
+<img alt="" class="brand-logo brand-logo-color" src="assets/brand/ravora-logo.svg"/>
+</a>
+<nav aria-label="Ana menü" class="navigation-desktop"><a class="navigation-link active" href="index.html">Ana Sayfa</a><a class="navigation-link" href="kurumsal.html">Kurumsal</a><a class="navigation-link" href="tasarim-kalite.html">Tasarım &amp; Kalite</a><a class="navigation-link" href="sorumluluk.html">Sorumluluk</a></nav>
+<a class="header-action" href="iletisim.html">Bize ulaşın</a>
+<button aria-expanded="false" aria-label="Menüyü aç" class="navigation-toggle" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+</div>
+</header>
+<div aria-hidden="true" class="navigation-mobile">
+  <div class="navigation-panel">
+    <div class="navigation-header"><img alt="" src="assets/brand/ravora-logo.svg"/><button aria-label="Menüyü kapat" class="navigation-close" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" viewbox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"></path></svg></button></div>
+    <nav aria-label="Mobil menü"><a class="navigation-link active" href="index.html">Ana Sayfa</a><a class="navigation-link" href="kurumsal.html">Kurumsal</a><a class="navigation-link" href="tasarim-kalite.html">Tasarım &amp; Kalite</a><a class="navigation-link" href="sorumluluk.html">Sorumluluk</a><a class="navigation-link" href="iletisim.html">İletişim</a></nav>
+    <div class="navigation-contact"><a href="mailto:ravora@ravoragiyim.com">ravora@ravoragiyim.com</a><a href="tel:+905071684352">+90 (507) 168 43 52</a></div>
+  </div>
+</div>
+<main class="page-contact" id="main-content">
+  <section class="contact-compact-section">
+    <div class="container">
+      <div class="contact-compact-grid">
+        <article class="contact-branch-panel">
+          <figure class="branch-photo-frame">
+            <img alt="" decoding="async" fetchpriority="high" src="assets/brand/store1.png"/>
+            <figcaption class="branch-photo-caption"><div class="branch-info-eyebrow">1. Şube</div><h3>Ankara</h3></figcaption>
+          </figure>
+          <div class="contact-branch-info">
+            <div class="branch-info-rows">
+              <div class="branch-info-row"><span class="branch-row-label">Adres</span><span class="branch-row-value">Tevfik İleri Mah. Firuze Sok. No: 70/1<br/>Pursaklar, Ankara, Türkiye</span></div>
+              <div class="branch-info-row"><span class="branch-row-label">Telefon</span><span class="branch-row-value"><a href="tel:+905071684352">+90 (507) 168 43 52</a></span></div>
+              <div class="branch-info-row"><span class="branch-row-label">Çalışma saatleri</span><span class="branch-row-value">Pazartesi–Cuma · 09.00–18.00</span></div>
+              <div class="branch-info-row"><span class="branch-row-label">E-posta</span><span class="branch-row-value"><a href="mailto:ravora@ravoragiyim.com">ravora@ravoragiyim.com</a></span></div>
+            </div>
+          </div>
+          <div class="branch-map-frame"><div aria-label="Ravora 1. Şube konumu" class="rv-branch-map" data-lat="40.03362" data-lng="32.90432" data-zoom="15" id="branch-map-1" role="application"></div></div>
+        </article>
+        <article class="contact-branch-panel">
+          <figure class="branch-photo-frame">
+            <img alt="" decoding="async" src="assets/brand/store2.png"/>
+            <figcaption class="branch-photo-caption"><div class="branch-info-eyebrow">2. Şube</div><h3>Çok yakında</h3></figcaption>
+          </figure>
+          <div class="contact-branch-info">
+            <div class="branch-info-rows">
+              <div class="branch-info-row"><span class="branch-row-label">Adres</span><span class="branch-row-value">Çok yakında açıklanacak</span></div>
+              <div class="branch-info-row"><span class="branch-row-label">Telefon</span><span class="branch-row-value">Çok yakında açıklanacak</span></div>
+              <div class="branch-info-row"><span class="branch-row-label">Çalışma saatleri</span><span class="branch-row-value">Çok yakında açıklanacak</span></div>
+              <div class="branch-info-row"><span class="branch-row-label">E-posta</span><span class="branch-row-value"><a href="mailto:ravora@ravoragiyim.com">ravora@ravoragiyim.com</a></span></div>
+            </div>
+          </div>
+          <div class="branch-map-frame"><div aria-label="Ravora 2. Şube konumu" class="rv-branch-map" data-lat="40.03362" data-lng="32.90432" data-zoom="15" id="branch-map-2" role="application"></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-columns">
+<div class="footer-intro"><img alt="" src="assets/brand/ravora-logo-white.svg"/><p>Doğanın değişken şartları ile şehir yaşamının ritmi arasında, kesintisiz hareket için geliştirilen teknik outdoor yaklaşımı.</p><div class="footer-tagline">SINIRLAR DEĞİŞİR. RAVORA DURUŞU DEĞİŞMEZ.</div></div>
+<div><h3>Ravora</h3><a href="kurumsal.html">Kurumsal</a><a href="tasarim-kalite.html">Tasarım &amp; Kalite</a><a href="sorumluluk.html">Sorumluluk</a></div>
+<div><h3>İletişim</h3><a href="iletisim.html">Bize ulaşın</a><a href="mailto:ravora@ravoragiyim.com">E-posta</a><a href="tel:+905071684352">Telefon</a></div>
+<div class="footer-address"><h3>Genel merkez</h3><p>Tevfik İleri Mah. Firuze Sok. No: 70/1<br/>Pursaklar, Ankara, Türkiye</p><a href="kvkk.html">KVKK Aydınlatma Metni</a></div>
+</div><div class="footer-bottom"><span>© 2026 Ravora Giyim Sanayi A.Ş.</span></div></div></footer>
+<script src="https://unpkg.com/maplibre-gl@5.7.1/dist/maplibre-gl.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var MAP_STYLE = "https://tiles.openfreemap.org/styles/positron";
+
+  function showStatus(element, message) {
+    var status = element.querySelector(".rv-map-status");
+    if (!status) {
+      status = document.createElement("div");
+      status.className = "rv-map-status";
+      element.appendChild(status);
+    }
+    status.textContent = message;
+    status.hidden = false;
+  }
+
+  function hideStatus(element) {
+    var status = element.querySelector(".rv-map-status");
+    if (status) status.hidden = true;
+  }
+
+  function initialiseMap(element) {
+    var lat = Number(element.getAttribute("data-lat"));
+    var lng = Number(element.getAttribute("data-lng"));
+    var zoom = Number(element.getAttribute("data-zoom")) || 15;
+
+    if (!window.maplibregl) {
+      showStatus(element, "Harita bileşeni yüklenemedi. İnternet bağlantısını kontrol edin.");
+      return;
+    }
+
+    showStatus(element, "Harita yükleniyor…");
+
+    var map;
+    try {
+      map = new window.maplibregl.Map({
+        container: element,
+        style: MAP_STYLE,
+        center: [lng, lat],
+        zoom: zoom,
+        minZoom: 3,
+        maxZoom: 19,
+        attributionControl: false,
+        dragRotate: false,
+        pitchWithRotate: false,
+        scrollZoom: false,
+        touchPitch: false,
+        renderWorldCopies: true
+      });
+    } catch (error) {
+      showStatus(element, "Harita başlatılamadı. İnternet bağlantısını kontrol edin.");
+      return;
+    }
+
+    map.addControl(new window.maplibregl.NavigationControl({
+      showCompass: false,
+      showZoom: true,
+      visualizePitch: false
+    }), "top-left");
+
+    map.addControl(new window.maplibregl.AttributionControl({
+      compact: true,
+      customAttribution: "OpenFreeMap"
+    }), "bottom-right");
+
+    var pin = document.createElement("img");
+    pin.className = "rv-map-pin";
+    pin.src = "assets/brand/pin.png";
+    pin.alt = "Ravora şube konumu";
+    pin.draggable = false;
+
+    new window.maplibregl.Marker({
+      element: pin,
+      anchor: "bottom"
+    }).setLngLat([lng, lat]).addTo(map);
+
+    map.on("load", function () {
+      hideStatus(element);
+      map.resize();
+    });
+
+    var firstMapError = true;
+    map.on("error", function () {
+      if (firstMapError && !map.loaded()) {
+        firstMapError = false;
+        window.setTimeout(function () {
+          if (!map.loaded()) {
+            showStatus(element, "Harita verileri yüklenemedi. İnternet bağlantısını kontrol edin.");
+          }
+        }, 2500);
+      }
+    });
+
+    
+    if ("ResizeObserver" in window) {
+      var observer = new ResizeObserver(function () {
+        map.resize();
+      });
+      observer.observe(element);
+    } else {
+      window.addEventListener("resize", function () {
+        map.resize();
+      });
+    }
+  }
+
+  function initialiseMaps() {
+    document.querySelectorAll(".rv-branch-map").forEach(initialiseMap);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initialiseMaps);
+  } else {
+    initialiseMaps();
+  }
+}());
+</script>
+<script>
+
+(function () {
+  "use strict";
+  window.addEventListener("wheel", function (event) {
+    if (!event.ctrlKey) event.stopImmediatePropagation();
+  }, { capture: true, passive: true });
+}());
+</script>
+<script src="assets/js/main.js"></script>
+</body></html>
+
+</body></html>
